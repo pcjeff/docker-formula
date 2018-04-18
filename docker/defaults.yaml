@@ -9,9 +9,10 @@ docker:
 
   pip:
     upgrade: False
+    version: 9.0.1
 
   use_upstream_repo: True
-  compose_version:
+  compose_version: 1.21.0
 
   containers:
     skip_translate: None
