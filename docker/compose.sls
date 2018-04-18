@@ -5,7 +5,7 @@ compose-pip:
     - name: python-pip
   pip.installed:
     - name: pip
-    - upgrade: True
+    - upgrade: False
 
 compose:
   pip.installed:
@@ -14,3 +14,6 @@ compose:
     {%- else %}
     - name: docker-compose
     {%- endif %}
+    - upgrade: True
+    - force_reinstall: True
+    - no_cache_dir: True
