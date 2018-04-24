@@ -142,7 +142,7 @@ docker-py requirements:
     - name: {{ docker.python_pip_package }}
   pip.installed:
     {%- if "pip" in docker and "version" in docker.pip and "version" in docker.pip %}
-    - name: pip {{ docker.pip.version }}
+    - name: pip=={{ docker.pip.version }}
     {%- else %}
     - name: pip
     {%- if "pip" in docker and "upgrade" in docker.pip and docker.pip.upgrade %}
@@ -155,9 +155,12 @@ docker-py:
     {%- if "python_package" in docker %}
     - name: {{ docker.python_package }}
     {%- elif "pip_version" in docker %}
-    - name: docker-py {{ docker.pip_version }}
+    - name: docker-py=={{ docker.pip_version }}
     {%- else %}
     - name: docker-py
     {%- endif %}
     - reload_modules: true
+    - force_reinstall: True
+    - no_cache_dir: True
+    - upgrade: True
 {% endif %}

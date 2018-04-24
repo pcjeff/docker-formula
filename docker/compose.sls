@@ -17,3 +17,4 @@ compose:
     - upgrade: True
     - force_reinstall: True
     - no_cache_dir: True
+    - reload_modules: True
