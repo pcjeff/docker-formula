@@ -116,6 +116,14 @@ docker package:
       {%- endif %}
       - file: docker-config
 
+docker-daemon:
+  file.managed:
+    - name: /etc/docker/daemon.json
+    - source: salt://deepqmachine/files/daemon.json
+    - template: jinja
+    - mode: 644
+    - user: root
+
 docker-config:
   file.managed:
     - name: /etc/default/docker

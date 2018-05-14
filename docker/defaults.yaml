@@ -9,7 +9,7 @@ docker:
 
   pip:
     upgrade: False
-    version: 9.0.1
+    version: 9.0.3
 
   use_upstream_repo: True
   compose_version:
