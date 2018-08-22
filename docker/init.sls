@@ -116,13 +116,16 @@ docker package:
       {%- endif %}
       - file: docker-config
 
-#docker-daemon:
-#  file.managed:
-#    - name: /etc/docker/daemon.json
-#    - source: salt://deepqmachine/files/daemon.json
-#    - template: jinja
-#    - mode: 644
-#    - user: root
+
+{% if docker.use_nv_docker2 %}
+docker-daemon:
+  file.managed:
+    - name: /etc/docker/daemon.json
+    - source: salt://deepqmachine/files/daemon.json
+    - template: jinja
+    - mode: 644
+    - user: root
+{% endif %}
 
 docker-config:
   file.managed:

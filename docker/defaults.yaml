@@ -6,6 +6,7 @@ docker:
   install_docker_py: False
   refresh_repo: True
   config: []
+  use_nv_docker2: False
 
   pip:
     upgrade: False
